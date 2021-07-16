@@ -33,6 +33,8 @@ ball.color("white")
 ball.penup()
 ball.goto(0,0)
 
+
+# player movement 
 def paddle_one_up():
     y = paddle_one.ycor()
     y += 20
@@ -47,9 +49,26 @@ def paddle_one_down():
         y = -250
     paddle_one.sety(y)
 
+def paddle_two_up():
+    y = paddle_two.ycor()
+    y += 20
+    if y >= 250:
+        y = 250
+    paddle_two.sety(y)
+
+def paddle_two_down():
+    y = paddle_two.ycor()
+    y -= 20
+    if y <= -250:
+        y = -250
+    paddle_two.sety(y)
+
+# event listeners 
 window.listen()
 window.onkeypress(paddle_one_up, "w")
 window.onkeypress(paddle_one_down, "s")
+window.onkeypress(paddle_two_up, "Up")
+window.onkeypress(paddle_two_down, "Down")
 
 
 while True:
