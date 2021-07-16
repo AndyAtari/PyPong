@@ -16,10 +16,14 @@ paddle_one.color("white")
 paddle_one.penup()
 paddle_one.goto(-350, 0)
 
-
-
 # player 2
-
+paddle_one = turtle.Turtle()
+paddle_one.speed(0)
+paddle_one.shape("square")
+paddle_one.shapesize(stretch_wid=5, stretch_len=1)
+paddle_one.color("white")
+paddle_one.penup()
+paddle_one.goto(350, 0)
 
 while True:
     window.update() 
