@@ -32,7 +32,8 @@ ball.shape("square")
 ball.color("white")
 ball.penup()
 ball.goto(0,0)
-
+ball.dx = 0.2
+ball.dy = 0.2
 
 # player movement 
 def paddle_one_up():
@@ -70,6 +71,9 @@ window.onkeypress(paddle_one_down, "s")
 window.onkeypress(paddle_two_up, "Up")
 window.onkeypress(paddle_two_down, "Down")
 
-
+# game loop
 while True:
     window.update() 
+
+    ball.setx(ball.xcor() + ball.dx)
+    ball.sety(ball.ycor() + ball.dy)
