@@ -35,6 +35,19 @@ ball.goto(0,0)
 ball.dx = 0.15
 ball.dy = 0.15
 
+# score card
+pen = turtle.Turtle()
+pen.speed(0)
+pen.penup()
+pen.color("white")
+pen.hideturtle()
+pen.goto(0, 260)
+pen.write("Player One: 0  Player Two: 0", align="center", font=("Courier", 24, "normal"))
+
+# score logic
+score_one = 0
+score_two = 0
+
 # player movement 
 def paddle_one_up():
     y = paddle_one.ycor()
@@ -90,10 +103,18 @@ while True:
     if ball.xcor() > 390:
         ball.goto(0, 0)
         ball.dx *= -1
+        score_one += 1
+        pen.clear()
+        pen.write(f"Player One: {score_one}  Player Two: {score_two}", align="center", font=("Courier", 24, "normal"))
+
     
     if ball.xcor() < -390:
         ball.goto(0, 0)
         ball.dx *= -1
+        score_two += 1
+        pen.clear()
+        pen.write(f"Player One: {score_one}  Player Two: {score_two}", align="center", font=("Courier", 24, "normal"))
+
 
     # paddle collisions
     if ball.xcor() > 340 and ball.xcor() < 350 and (ball.ycor() < paddle_two.ycor() + 50 and ball.ycor() > paddle_two.ycor() -50):
